@@ -24,8 +24,14 @@ public class ItemRepositoryContainerTest {
             .withUsername("user")
             .withPassword("password");
 
-    static {
+    @BeforeAll
+    static void beforeAll() {
         postgres.start();
+    }
+
+    @AfterAll
+    static void afterAll() {
+        postgres.stop();
     }
 
     @Autowired
