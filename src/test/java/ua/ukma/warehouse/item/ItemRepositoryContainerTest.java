@@ -1,5 +1,7 @@
 package ua.ukma.warehouse.item;
 
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import ua.ukma.warehouse.Item;
 import ua.ukma.warehouse.ItemRepository;
 import org.junit.jupiter.api.*;
@@ -19,10 +21,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class ItemRepositoryContainerTest {
 
-    private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15")
-            .withDatabaseName("warehouse")
-            .withUsername("user")
-            .withPassword("password");
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
+            "postgres:15"
+    );
 
     @BeforeAll
     static void beforeAll() {
@@ -32,6 +33,13 @@ public class ItemRepositoryContainerTest {
     @AfterAll
     static void afterAll() {
         postgres.stop();
+    }
+
+    @DynamicPropertySource
+    static void configureProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgres::getJdbcUrl);
+        registry.add("spring.datasource.username", postgres::getUsername);
+        registry.add("spring.datasource.password", postgres::getPassword);
     }
 
     @Autowired
