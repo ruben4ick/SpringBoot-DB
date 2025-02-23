@@ -1,4 +1,4 @@
-package ua.ukma.warehouse;
+package ua.ukma.warehouse.item;
 
 import jakarta.persistence.*;
 import lombok.*;

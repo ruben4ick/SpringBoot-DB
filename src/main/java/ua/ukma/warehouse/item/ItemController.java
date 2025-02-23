@@ -1,4 +1,4 @@
-package ua.ukma.warehouse;
+package ua.ukma.warehouse.item;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

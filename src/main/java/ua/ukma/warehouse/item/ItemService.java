@@ -1,7 +1,5 @@
-package ua.ukma.warehouse;
+package ua.ukma.warehouse.item;
 
-import ua.ukma.warehouse.Item;
-import ua.ukma.warehouse.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

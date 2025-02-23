@@ -2,8 +2,6 @@ package ua.ukma.warehouse.item;
 
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import ua.ukma.warehouse.Item;
-import ua.ukma.warehouse.ItemRepository;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -36,6 +36,7 @@
 		testImplementation("org.springframework.boot:spring-boot-testcontainers")
 		testImplementation("org.testcontainers:junit-jupiter")
 		testImplementation("org.testcontainers:postgresql")
+//		testImplementation("org.flywaydb:flyway-core")
 		testImplementation("org.mockito:mockito-core:5.6.0")
 		testImplementation("org.mockito:mockito-junit-jupiter:5.6.0")
 		testRuntimeOnly("org.junit.platform:junit-platform-launcher")
