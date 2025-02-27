@@ -12,32 +12,50 @@ public class ItemEntityManagerService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * Створює новий Item (переводить у стан MANAGED)
+     */
     @Transactional
     public void persistItem(Item item) {
-        entityManager.persist(item); // Item переходить у стан MANAGED
+        entityManager.persist(item);
     }
 
+    /**
+     * Пошук Item за його ідентифікатором
+     */
     public Item findItem(Long id) {
-        return entityManager.find(Item.class, id); // Отримує Item з БД
+        return entityManager.find(Item.class, id);
     }
 
+    /**
+     * Видалення Item
+     */
     @Transactional
     public void removeItem(Item item) {
-        entityManager.remove(item); // Видаляє Item
+        entityManager.remove(item);
     }
 
+    /**
+     * Оновлення (merge) Item, який є DETACHED
+     */
     @Transactional
     public Item mergeItem(Item item) {
-        return entityManager.merge(item); // Оновлює від'єднаний Item
+        return entityManager.merge(item);
     }
 
+    /**
+     * Переведення Item у стан DETACHED
+     */
     @Transactional
     public void detachItem(Item item) {
-        entityManager.detach(item); // Робить Item DETACHED
+        entityManager.detach(item);
     }
 
+    /**
+     * Оновлення (refresh) даних Item з БД
+     */
     @Transactional
     public void refreshItem(Item item) {
-        entityManager.refresh(item); // Оновлює дані Item з бази
+        entityManager.refresh(item);
     }
 }

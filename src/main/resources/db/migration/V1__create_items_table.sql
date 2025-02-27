@@ -1,9 +1,13 @@
-CREATE TABLE items (
-                       id SERIAL PRIMARY KEY,
+CREATE TABLE items_test (
+                       id BIGSERIAL PRIMARY KEY,
                        name VARCHAR(255) NOT NULL,
-                       price DECIMAL(10,2) NOT NULL
+                       quantity INT NOT NULL DEFAULT 0,
+                       price DOUBLE PRECISION NOT NULL
 );
 
-INSERT INTO items (name, price) VALUES
-                                    ('Laptop', 1200.50),
-                                    ('Smartphone', 699.99),
+
+
+
+INSERT INTO items_test (name, quantity, price) VALUES
+                                              ('Laptop', 10, 1200.50),
+                                              ('Smartphone', 5, 699.99);
