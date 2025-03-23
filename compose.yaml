@@ -1,8 +1,22 @@
 services:
-  postgres:
+  primary-db:
     image: postgres:15
-    restart: always
     environment:
-      - 'POSTGRES_PASSWORD=secret'
+      POSTGRES_DB: warehouse
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
     ports:
-      - '5432:5432'
+      - "5433:5432"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+  secondary-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: warehouse_backup
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
