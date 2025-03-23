@@ -74,11 +74,13 @@ public class DataSourceRoutingTest {
 
         contextHolder.setBranchContext(DataSourceEnum.PRIMARY);
         List<Item> primaryItems = itemRepository.findAll();
-        assertTrue(primaryItems.stream().anyMatch(i -> i.getName().equals("PrimaryItem")));
+        assertEquals(1, primaryItems.size());
+        assertEquals("PrimaryItem", primaryItems.get(0).getName());
 
         contextHolder.setBranchContext(DataSourceEnum.SECONDARY);
         List<Item> secondaryItems = itemRepository.findAll();
-        assertTrue(secondaryItems.stream().anyMatch(i -> i.getName().equals("SecondaryItem")));
+        assertEquals(1, secondaryItems.size());
+        assertEquals("SecondaryItem", secondaryItems.get(0).getName());
 
         contextHolder.clearBranchContext();
     }
