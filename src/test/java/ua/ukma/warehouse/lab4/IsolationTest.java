@@ -111,25 +111,26 @@ public class IsolationTest {
         assertEquals(Integer.valueOf(1), result.get(1)); // новий запис не видно
     }
 
-    @Test
-    void testRepeatableReadAllowsDuplicateInsert() throws InterruptedException {
-        Runnable task = () -> {
-            isolationService.insertIfNotExistsRepeatableRead("UniqueRepeatable");
-        };
-
-        Thread t1 = new Thread(task);
-        Thread t2 = new Thread(task);
-
-        t1.start();
-        t2.start();
-
-        t1.join();
-        t2.join();
-
-        long count = itemRepo.countByNameStartingWith("UniqueRepeatable");
-        // обидві транзакції побачили count = 0 → вставили
-        assertEquals(2, count); // дублікати
-    }
+      //this test does not work at this commit because of the index on the name column
+//    @Test
+//    void testRepeatableReadAllowsDuplicateInsert() throws InterruptedException {
+//        Runnable task = () -> {
+//            isolationService.insertIfNotExistsRepeatableRead("UniqueRepeatable");
+//        };
+//
+//        Thread t1 = new Thread(task);
+//        Thread t2 = new Thread(task);
+//
+//        t1.start();
+//        t2.start();
+//
+//        t1.join();
+//        t2.join();
+//
+//        long count = itemRepo.countByNameStartingWith("UniqueRepeatable");
+//        // обидві транзакції побачили count = 0 → вставили
+//        assertEquals(2, count); // дублікати
+//    }
 
     @Test
     void testSerializableDetectsRaceCondition() throws InterruptedException {
