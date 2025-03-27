@@ -41,6 +41,7 @@
 		testImplementation("org.mockito:mockito-core:5.6.0")
 		testImplementation("org.mockito:mockito-junit-jupiter:5.6.0")
 		testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+		implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	}
 
 	tasks.withType<Test> {

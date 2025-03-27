@@ -6,7 +6,10 @@ import ua.ukma.warehouse.category.Category;
 
 @Entity
 @Data
-@Table(name="items")
+@Table(
+        name = "items",
+        indexes = @Index(name = "itemNameIndex", columnList = "name", unique = true)
+)
 @AllArgsConstructor
 @NoArgsConstructor
 public class Item {
