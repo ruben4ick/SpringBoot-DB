@@ -1,4 +1,4 @@
-CREATE TABLE items_test (
+CREATE TABLE items (
                        id BIGSERIAL PRIMARY KEY,
                        name VARCHAR(255) NOT NULL,
                        quantity INT NOT NULL DEFAULT 0,
@@ -8,6 +8,6 @@ CREATE TABLE items_test (
 
 
 
-INSERT INTO items_test (name, quantity, price) VALUES
+INSERT INTO items (name, quantity, price) VALUES
                                               ('Laptop', 10, 1200.50),
                                               ('Smartphone', 5, 699.99);

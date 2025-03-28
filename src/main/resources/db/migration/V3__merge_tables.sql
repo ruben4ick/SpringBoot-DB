@@ -9,7 +9,7 @@ CREATE TABLE final_items (
 
 INSERT INTO final_items (name, quantity, price, total_items, average_price)
 SELECT i.name, i.quantity, i.price, s.total_items, s.average_price
-FROM items_test i CROSS JOIN item_summary s;
+FROM items i CROSS JOIN item_summary s;
 
 DROP TABLE item_summary;
-DROP TABLE items_test;
+-- DROP TABLE items;  --because of validate property
