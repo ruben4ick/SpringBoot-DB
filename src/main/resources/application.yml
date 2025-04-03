@@ -7,6 +7,13 @@ spring:
   config:
     activate:
       on-profile: default
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 60000
+      repositories:
+        enabled: true
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -22,6 +29,13 @@ spring:
   config:
     activate:
       on-profile: test
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 60000
+      repositories:
+        enabled: true
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver

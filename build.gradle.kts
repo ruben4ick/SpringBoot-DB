@@ -27,7 +27,7 @@
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 		implementation("org.springframework.boot:spring-boot-starter-web")
-//		implementation("org.flywaydb:flyway-database-postgresql")
+		implementation("org.springframework.boot:spring-boot-starter-data-redis:3.4.4")//		implementation("org.flywaydb:flyway-database-postgresql")
 		compileOnly("org.projectlombok:lombok")
 		developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 		runtimeOnly("com.h2database:h2")
